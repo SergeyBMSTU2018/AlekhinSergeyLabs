@@ -149,12 +149,9 @@ namespace Lab1
                         }
 
                     }
-
-
                 }
-
-                Console.Read();
             }
+            Console.Read();
         }
     }
 }
