@@ -11,6 +11,7 @@ namespace Lab2
         static void Main(string[] args)
         {
             Console.Title = "Алехин Сергей ИУ5-31Б";
+            Console.OutputEncoding = Encoding.UTF8;
             double dWidth = 2;
             double dHeight = 3;
             double dSide = 4;
@@ -25,7 +26,7 @@ namespace Lab2
             var circle = new Circle(dRadius);
             Console.WriteLine($"{circle.ToString()}");
 
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }
