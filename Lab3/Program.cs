@@ -12,6 +12,8 @@ namespace Lab3
         {
             Console.Title = "Алехин Сергей ИУ5-31Б";
             Console.OutputEncoding = Encoding.UTF8;
+            //var rectangle =
+
         }
     }
 }
