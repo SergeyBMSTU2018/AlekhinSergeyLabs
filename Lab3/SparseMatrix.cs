@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SparseMatrix
+namespace Lab3
 {
     public class Matrix<T>
     {
@@ -22,6 +22,7 @@ namespace SparseMatrix
         int maxY;
 
         int maxZ;
+
         /// <summary>
         /// Пустой элемент, который возвращается если элемент с нужными координатами не был задан
         /// </summary>
