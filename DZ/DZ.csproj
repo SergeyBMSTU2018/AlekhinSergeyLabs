@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{09D46814-7DF8-4D6D-A7DB-494192F7E6B3}</ProjectGuid>
+    <ProjectGuid>{E53EEACC-DE78-4637-BA3B-39C43082CED8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Lab5</RootNamespace>
     <AssemblyName>Lab5</AssemblyName>
@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MinMax.cs" />
+    <Compile Include="SubArrays.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
