@@ -1,4 +1,4 @@
-﻿namespace Lab5
+﻿namespace DZ
 {
     partial class Form1
     {
@@ -28,83 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.readFromFile = new System.Windows.Forms.Button();
+            this.readFromFileButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.downloadTimeLabel = new System.Windows.Forms.Label();
-            this.findWordInList = new System.Windows.Forms.TextBox();
-            this.findInList = new System.Windows.Forms.Button();
-            this.maxSize = new System.Windows.Forms.TextBox();
+            this.findWordTextBox = new System.Windows.Forms.TextBox();
+            this.findWordButton = new System.Windows.Forms.Button();
+            this.maxDistanceTextBox = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.findTimeLabel = new System.Windows.Forms.Label();
+            this.findWordTimeLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numberOfUniqueWordsLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.threadNumberTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.numberOfThreadLabel = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.findLevenDistanceTimeLabel = new System.Windows.Forms.Label();
+            this.findLevenDistanceButton = new System.Windows.Forms.Button();
+            this.createReportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // readFromFile
+            // readFromFileButton
             // 
-            this.readFromFile.Location = new System.Drawing.Point(12, 28);
-            this.readFromFile.Name = "readFromFile";
-            this.readFromFile.Size = new System.Drawing.Size(776, 50);
-            this.readFromFile.TabIndex = 0;
-            this.readFromFile.Text = "Чтение файла";
-            this.readFromFile.UseVisualStyleBackColor = true;
-            this.readFromFile.Click += new System.EventHandler(this.ReadFromFile_Click);
+            this.readFromFileButton.Location = new System.Drawing.Point(12, 28);
+            this.readFromFileButton.Name = "readFromFileButton";
+            this.readFromFileButton.Size = new System.Drawing.Size(776, 50);
+            this.readFromFileButton.TabIndex = 0;
+            this.readFromFileButton.Text = "Чтение файла";
+            this.readFromFileButton.UseVisualStyleBackColor = true;
+            this.readFromFileButton.Click += new System.EventHandler(this.ReadFromFile_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(493, 138);
+            this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 25);
+            this.label1.Size = new System.Drawing.Size(176, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Время загрузки";
+            this.label1.Text = "Время загрузки:";
             // 
             // downloadTimeLabel
             // 
             this.downloadTimeLabel.AutoSize = true;
-            this.downloadTimeLabel.Location = new System.Drawing.Point(692, 138);
+            this.downloadTimeLabel.Location = new System.Drawing.Point(194, 81);
             this.downloadTimeLabel.Name = "downloadTimeLabel";
             this.downloadTimeLabel.Size = new System.Drawing.Size(66, 25);
             this.downloadTimeLabel.TabIndex = 2;
             this.downloadTimeLabel.Text = "00:00";
             // 
-            // findWordInList
+            // findWordTextBox
             // 
-            this.findWordInList.Location = new System.Drawing.Point(12, 91);
-            this.findWordInList.Name = "findWordInList";
-            this.findWordInList.Size = new System.Drawing.Size(651, 31);
-            this.findWordInList.TabIndex = 3;
+            this.findWordTextBox.Location = new System.Drawing.Point(183, 125);
+            this.findWordTextBox.Name = "findWordTextBox";
+            this.findWordTextBox.Size = new System.Drawing.Size(605, 31);
+            this.findWordTextBox.TabIndex = 3;
             // 
-            // findInList
+            // findWordButton
             // 
-            this.findInList.Location = new System.Drawing.Point(669, 84);
-            this.findInList.Name = "findInList";
-            this.findInList.Size = new System.Drawing.Size(119, 45);
-            this.findInList.TabIndex = 4;
-            this.findInList.Text = "Найти";
-            this.findInList.UseVisualStyleBackColor = true;
-            this.findInList.Click += new System.EventHandler(this.FindInList_Click);
+            this.findWordButton.Location = new System.Drawing.Point(12, 238);
+            this.findWordButton.Name = "findWordButton";
+            this.findWordButton.Size = new System.Drawing.Size(248, 45);
+            this.findWordButton.TabIndex = 4;
+            this.findWordButton.Text = "Поиск слова";
+            this.findWordButton.UseVisualStyleBackColor = true;
+            this.findWordButton.Click += new System.EventHandler(this.FindWordButton_Click);
             // 
-            // maxSize
+            // maxDistanceTextBox
             // 
-            this.maxSize.Location = new System.Drawing.Point(325, 132);
-            this.maxSize.Name = "maxSize";
-            this.maxSize.Size = new System.Drawing.Size(162, 31);
-            this.maxSize.TabIndex = 5;
+            this.maxDistanceTextBox.Location = new System.Drawing.Point(321, 162);
+            this.maxDistanceTextBox.Name = "maxDistanceTextBox";
+            this.maxDistanceTextBox.Size = new System.Drawing.Size(467, 31);
+            this.maxDistanceTextBox.TabIndex = 5;
+            this.maxDistanceTextBox.Text = "3";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(17, 184);
+            this.listBox1.Location = new System.Drawing.Point(12, 340);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(470, 254);
+            this.listBox1.Size = new System.Drawing.Size(776, 279);
             this.listBox1.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 132);
+            this.label2.Location = new System.Drawing.Point(12, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(289, 25);
             this.label2.TabIndex = 7;
@@ -113,36 +125,147 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(493, 170);
+            this.label3.Location = new System.Drawing.Point(316, 248);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 25);
+            this.label3.Size = new System.Drawing.Size(158, 25);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Время поиска";
+            this.label3.Text = "Время поиска:";
             // 
-            // findTimeLabel
+            // findWordTimeLabel
             // 
-            this.findTimeLabel.AutoSize = true;
-            this.findTimeLabel.Location = new System.Drawing.Point(692, 170);
-            this.findTimeLabel.Name = "findTimeLabel";
-            this.findTimeLabel.Size = new System.Drawing.Size(66, 25);
-            this.findTimeLabel.TabIndex = 9;
-            this.findTimeLabel.Text = "00:00";
+            this.findWordTimeLabel.AutoSize = true;
+            this.findWordTimeLabel.Location = new System.Drawing.Point(480, 248);
+            this.findWordTimeLabel.Name = "findWordTimeLabel";
+            this.findWordTimeLabel.Size = new System.Drawing.Size(66, 25);
+            this.findWordTimeLabel.TabIndex = 9;
+            this.findWordTimeLabel.Text = "00:00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(364, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(312, 25);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Количество уникальных слов:";
+            // 
+            // numberOfUniqueWordsLabel
+            // 
+            this.numberOfUniqueWordsLabel.AutoSize = true;
+            this.numberOfUniqueWordsLabel.Location = new System.Drawing.Point(682, 81);
+            this.numberOfUniqueWordsLabel.Name = "numberOfUniqueWordsLabel";
+            this.numberOfUniqueWordsLabel.Size = new System.Drawing.Size(24, 25);
+            this.numberOfUniqueWordsLabel.TabIndex = 11;
+            this.numberOfUniqueWordsLabel.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(165, 25);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Введите слово:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 200);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(221, 25);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Количество потоков:";
+            // 
+            // threadNumberTextBox
+            // 
+            this.threadNumberTextBox.Location = new System.Drawing.Point(321, 200);
+            this.threadNumberTextBox.Name = "threadNumberTextBox";
+            this.threadNumberTextBox.Size = new System.Drawing.Size(467, 31);
+            this.threadNumberTextBox.TabIndex = 14;
+            this.threadNumberTextBox.Text = "10";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(537, 299);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(221, 25);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Количество потоков:";
+            // 
+            // numberOfThreadLabel
+            // 
+            this.numberOfThreadLabel.AutoSize = true;
+            this.numberOfThreadLabel.Location = new System.Drawing.Point(764, 299);
+            this.numberOfThreadLabel.Name = "numberOfThreadLabel";
+            this.numberOfThreadLabel.Size = new System.Drawing.Size(24, 25);
+            this.numberOfThreadLabel.TabIndex = 16;
+            this.numberOfThreadLabel.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(266, 299);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(158, 25);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Время поиска:";
+            // 
+            // findLevenDistanceTimeLabel
+            // 
+            this.findLevenDistanceTimeLabel.AutoSize = true;
+            this.findLevenDistanceTimeLabel.Location = new System.Drawing.Point(430, 299);
+            this.findLevenDistanceTimeLabel.Name = "findLevenDistanceTimeLabel";
+            this.findLevenDistanceTimeLabel.Size = new System.Drawing.Size(66, 25);
+            this.findLevenDistanceTimeLabel.TabIndex = 18;
+            this.findLevenDistanceTimeLabel.Text = "00:00";
+            // 
+            // findLevenDistanceButton
+            // 
+            this.findLevenDistanceButton.Location = new System.Drawing.Point(12, 289);
+            this.findLevenDistanceButton.Name = "findLevenDistanceButton";
+            this.findLevenDistanceButton.Size = new System.Drawing.Size(248, 45);
+            this.findLevenDistanceButton.TabIndex = 19;
+            this.findLevenDistanceButton.Text = "Поиск Левенштейна";
+            this.findLevenDistanceButton.UseVisualStyleBackColor = true;
+            this.findLevenDistanceButton.Click += new System.EventHandler(this.findLevenDistanceButton_Click);
+            // 
+            // createReportButton
+            // 
+            this.createReportButton.Location = new System.Drawing.Point(12, 625);
+            this.createReportButton.Name = "createReportButton";
+            this.createReportButton.Size = new System.Drawing.Size(776, 45);
+            this.createReportButton.TabIndex = 20;
+            this.createReportButton.Text = "Создать отчет";
+            this.createReportButton.UseVisualStyleBackColor = true;
+            this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.findTimeLabel);
+            this.ClientSize = new System.Drawing.Size(802, 678);
+            this.Controls.Add(this.createReportButton);
+            this.Controls.Add(this.findLevenDistanceButton);
+            this.Controls.Add(this.findLevenDistanceTimeLabel);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.numberOfThreadLabel);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.threadNumberTextBox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numberOfUniqueWordsLabel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.findWordTimeLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.maxSize);
-            this.Controls.Add(this.findInList);
-            this.Controls.Add(this.findWordInList);
+            this.Controls.Add(this.maxDistanceTextBox);
+            this.Controls.Add(this.findWordButton);
+            this.Controls.Add(this.findWordTextBox);
             this.Controls.Add(this.downloadTimeLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.readFromFile);
+            this.Controls.Add(this.readFromFileButton);
             this.Name = "Form1";
             this.Text = "Алехин Сергей ИУ5-31Б";
             this.ResumeLayout(false);
@@ -152,16 +275,27 @@
 
         #endregion
 
-        private System.Windows.Forms.Button readFromFile;
+        private System.Windows.Forms.Button readFromFileButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label downloadTimeLabel;
-        private System.Windows.Forms.TextBox findWordInList;
-        private System.Windows.Forms.Button findInList;
-        private System.Windows.Forms.TextBox maxSize;
+        private System.Windows.Forms.TextBox findWordTextBox;
+        private System.Windows.Forms.Button findWordButton;
+        private System.Windows.Forms.TextBox maxDistanceTextBox;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label findTimeLabel;
+        private System.Windows.Forms.Label findWordTimeLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label numberOfUniqueWordsLabel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox threadNumberTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label numberOfThreadLabel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label findLevenDistanceTimeLabel;
+        private System.Windows.Forms.Button findLevenDistanceButton;
+        private System.Windows.Forms.Button createReportButton;
     }
 }
 
