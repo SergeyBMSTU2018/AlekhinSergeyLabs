@@ -27,6 +27,7 @@ namespace Lab6_part2
 
         static void Main(string[] args)
         {
+            Console.Title = "Алехин Сергей ИУ5-31Б";
             Type t = typeof(TestClass);
 
             Console.WriteLine("Тип " + t.FullName + " унаследован от " + t.BaseType.FullName);
