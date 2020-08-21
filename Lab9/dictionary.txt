@@ -1,0 +1,5 @@
+ 
+back назад
+bye пока
+hello привет
+return вернуть
