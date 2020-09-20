@@ -1,6 +1,6 @@
 ### Word ###
-.docx
-.doc
+*.docx
+*.doc
 
 ### Code ###
 .vscode/*
