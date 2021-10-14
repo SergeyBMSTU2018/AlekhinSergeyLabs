@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39EA47DB-F309-4A68-BFD4-0932FBCA4AA1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SQL_BD</RootNamespace>
+    <AssemblyName>SQL_BD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form_Seller_Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_Check.Designer.cs">
+      <DependentUpon>Form_Seller_Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Bill.Designer.cs">
+      <DependentUpon>Form_Admin_Statistics_Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin.Designer.cs">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BD_Shop_4semDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD_Shop_4semDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change.Designer.cs">
+      <DependentUpon>Form_Admin_Change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Bill.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Buy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Buy.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Buy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Customer.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Product.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Product_availability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Product_availability.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Product_availability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Seller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Seller.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Seller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Shop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Change_Shop.Designer.cs">
+      <DependentUpon>Form_Admin_Change_Shop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Information.Designer.cs">
+      <DependentUpon>Form_Admin_Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics.Designer.cs">
+      <DependentUpon>Form_Admin_Statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Premium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Premium.Designer.cs">
+      <DependentUpon>Form_Admin_Statistics_Premium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Seller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Seller.Designer.cs">
+      <DependentUpon>Form_Admin_Statistics_Seller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Top.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Statistics_Top.Designer.cs">
+      <DependentUpon>Form_Admin_Statistics_Top.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller.Designer.cs">
+      <DependentUpon>Form_Seller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_Bill.Designer.cs">
+      <DependentUpon>Form_Seller_Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller_NewBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_NewBuy.Designer.cs">
+      <DependentUpon>Form_Seller_NewBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller_NewBuy_NewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_NewBuy_NewProduct.Designer.cs">
+      <DependentUpon>Form_Seller_NewBuy_NewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller_Products_NotUsed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_Products_NotUsed.Designer.cs">
+      <DependentUpon>Form_Seller_Products_NotUsed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller_Product_availability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_Product_availability.Designer.cs">
+      <DependentUpon>Form_Seller_Product_availability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Seller_Shops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Seller_Shops.Designer.cs">
+      <DependentUpon>Form_Seller_Shops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_User_Product_availability_NotUsed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_User_Product_availability_NotUsed.Designer.cs">
+      <DependentUpon>Form_User_Product_availability_NotUsed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Form_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_User.Designer.cs">
+      <DependentUpon>Form_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_User_Shops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_User_Shops.Designer.cs">
+      <DependentUpon>Form_User_Shops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_User_Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_User_Products.Designer.cs">
+      <DependentUpon>Form_User_Products.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin_Bill.rdlc" />
+    <EmbeddedResource Include="Admin_Premium.rdlc" />
+    <EmbeddedResource Include="Admin_Seller.rdlc" />
+    <EmbeddedResource Include="Admin_Top.rdlc" />
+    <EmbeddedResource Include="Form_Seller_Check.resx">
+      <DependentUpon>Form_Seller_Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Statistics_Bill.resx">
+      <DependentUpon>Form_Admin_Statistics_Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin.resx">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change.resx">
+      <DependentUpon>Form_Admin_Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Bill.resx">
+      <DependentUpon>Form_Admin_Change_Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Buy.resx">
+      <DependentUpon>Form_Admin_Change_Buy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Customer.resx">
+      <DependentUpon>Form_Admin_Change_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Product.resx">
+      <DependentUpon>Form_Admin_Change_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Product_availability.resx">
+      <DependentUpon>Form_Admin_Change_Product_availability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Seller.resx">
+      <DependentUpon>Form_Admin_Change_Seller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Change_Shop.resx">
+      <DependentUpon>Form_Admin_Change_Shop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Information.resx">
+      <DependentUpon>Form_Admin_Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Statistics.resx">
+      <DependentUpon>Form_Admin_Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Statistics_Premium.resx">
+      <DependentUpon>Form_Admin_Statistics_Premium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Statistics_Seller.resx">
+      <DependentUpon>Form_Admin_Statistics_Seller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Statistics_Top.resx">
+      <DependentUpon>Form_Admin_Statistics_Top.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller.resx">
+      <DependentUpon>Form_Seller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller_Bill.resx">
+      <DependentUpon>Form_Seller_Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller_NewBuy.resx">
+      <DependentUpon>Form_Seller_NewBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller_NewBuy_NewProduct.resx">
+      <DependentUpon>Form_Seller_NewBuy_NewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller_Products_NotUsed.resx">
+      <DependentUpon>Form_Seller_Products_NotUsed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller_Product_availability.resx">
+      <DependentUpon>Form_Seller_Product_availability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Seller_Shops.resx">
+      <DependentUpon>Form_Seller_Shops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_User_Product_availability_NotUsed.resx">
+      <DependentUpon>Form_User_Product_availability_NotUsed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form_User.resx">
+      <DependentUpon>Form_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_User_Shops.resx">
+      <DependentUpon>Form_User_Shops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_User_Products.resx">
+      <DependentUpon>Form_User_Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seller_Check.rdlc" />
+    <EmbeddedResource Include="Seller_Bill.rdlc" />
+    <None Include="BD_Shop_4semDataSet.xsc">
+      <DependentUpon>BD_Shop_4semDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BD_Shop_4semDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BD_Shop_4semDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BD_Shop_4semDataSet.xss">
+      <DependentUpon>BD_Shop_4semDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
