@@ -1,6 +1,6 @@
+import createError from 'http-errors'
 import { AbstractScript } from '../service'
 import { PersonFinder, PersonGateway } from '../../database'
-import { HttpError } from '../../utils'
 
 interface PersonRegData {
     name: string
@@ -16,12 +16,12 @@ interface PersonReg {
 
 class PersonRegScript extends AbstractScript {
     async run({ name, surname, email, telephone, password }: PersonRegData): Promise<PersonReg> {
-        if (name.length > 128) throw new HttpError(400, 'Name > 128')
+        if (name.length > 128) throw createError.BadRequest('Name > 128')
 
         const pf = new PersonFinder()
 
         const persons = await pf.findByTelephone(telephone)
-        if (persons.length > 0) throw new HttpError(400, 'Telephone exist')
+        if (persons.length > 0) throw createError.BadRequest('Telephone exist')
 
         const pg = new PersonGateway()
         pg.setName(name)
@@ -31,7 +31,7 @@ class PersonRegScript extends AbstractScript {
         pg.setPassword(password)
 
         const userId = await pg.insert()
-        if (!userId) throw new HttpError(500, 'DB error')
+        if (!userId) throw createError.InternalServerError('DB error')
 
         return {
             userId,

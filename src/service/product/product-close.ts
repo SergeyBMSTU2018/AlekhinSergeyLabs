@@ -1,6 +1,6 @@
+import createError from 'http-errors'
 import { PersonFinder, ProductFinder } from '../../database'
 import { AbstractScript } from '../service'
-import { HttpError } from '../../utils'
 
 interface ProductCloseData {
     userId: number
@@ -16,22 +16,22 @@ class ProductCloseScript extends AbstractScript {
         const pf = new PersonFinder()
 
         const persons = await pf.findById(userId)
-        if (persons.length === 0) throw new HttpError(400, 'Wrong userId')
-        if (persons.length > 1) throw new HttpError(500, 'Too many persons')
+        if (persons.length === 0) throw createError.BadRequest('Wrong userId')
+        if (persons.length > 1) throw createError.InternalServerError('Too many persons')
 
         const prf = new ProductFinder()
 
         const products = await prf.findById(productId)
-        if (products.length === 0) throw new HttpError(400, 'Wrong productId')
-        if (products.length > 1) throw new HttpError(500, 'Too many products')
+        if (products.length === 0) throw createError.BadRequest('Wrong productId')
+        if (products.length > 1) throw createError.InternalServerError('Too many products')
 
         const pg = products[0]
-        if (pg.getOwnerId() !== userId) throw new HttpError(403, 'Not your product')
+        if (pg.getOwnerId() !== userId) throw createError.Forbidden('Not your product')
 
         pg.setClose(true)
 
         const id = await pg.update()
-        if (!id) throw new HttpError(500, 'DB error')
+        if (!id) throw createError.InternalServerError('DB error')
 
         return {
             productId: id,

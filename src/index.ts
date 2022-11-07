@@ -1,14 +1,15 @@
 import express, { json, urlencoded } from 'express'
+import morgan from 'morgan'
 import { developmentConfig } from './config'
 import { router } from './routes'
-import { logMiddleware, errorMiddleware, notFoundMiddleware } from './middleware'
+import { errorMiddleware, notFoundMiddleware } from './middleware'
 
 const app = express();
 
 app.use(json())
 app.use(urlencoded({ extended: true }));
 
-app.use(logMiddleware)
+app.use(morgan('tiny'))
 
 app.use('/api', router)
 

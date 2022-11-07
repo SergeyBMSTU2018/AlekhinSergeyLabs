@@ -1,6 +1,6 @@
+import createError from 'http-errors'
 import { AbstractScript } from '../service'
 import { PersonFinder } from '../../database'
-import { HttpError } from '../../utils'
 
 interface PersonAuthData {
     telephone: string
@@ -16,13 +16,13 @@ class PersonAuthScript extends AbstractScript {
         const pf = new PersonFinder()
 
         const persons = await pf.findByTelephone(telephone)
-        if (!persons) throw new HttpError(500, 'DB error')
+        if (!persons) throw createError.InternalServerError('DB error')
 
-        if (persons.length === 0) throw new HttpError(400, 'Wrong telephone')
-        if (persons.length > 1) throw new HttpError(500, 'Too many users')
+        if (persons.length === 0) throw createError.BadRequest('Wrong telephone')
+        if (persons.length > 1) throw createError.InternalServerError('Too many users')
 
         const user = persons[0]
-        if (user.getPassword() !== password) throw new HttpError(400, 'Wrong password')
+        if (user.getPassword() !== password) throw createError.BadRequest('Wrong password')
 
         return {
             userId: user.getId(),

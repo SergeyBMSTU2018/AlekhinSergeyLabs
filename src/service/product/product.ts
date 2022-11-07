@@ -1,6 +1,6 @@
+import createError from 'http-errors'
 import { AbstractScript } from '../service'
 import { ProductFinder } from '../../database'
-import { HttpError } from '../../utils'
 
 interface ProductData {
     productId: number
@@ -21,8 +21,8 @@ class ProductScript extends AbstractScript {
         const pf = new ProductFinder()
 
         const products = await pf.findById(productId)
-        if (products.length === 0) throw new HttpError(400, 'Wrong productId')
-        if (products.length > 1) throw new HttpError(500, 'Too many products')
+        if (products.length === 0) throw createError.BadRequest('Wrong productId')
+        if (products.length > 1) throw createError.InternalServerError('Too many products')
 
         const product = products[0]
 
