@@ -13,6 +13,8 @@ interface PersonAuth {
 
 class PersonAuthScript extends AbstractScript {
     async run({ telephone, password }: PersonAuthData): Promise<PersonAuth> {
+        if (telephone.length > 12) throw createError.BadRequest('Telephone > 12')
+
         const pf = new PersonFinder()
 
         const persons = await pf.findByTelephone(telephone)

@@ -13,6 +13,9 @@ interface ProductClose {
 
 class ProductCloseScript extends AbstractScript {
     async run({ userId, productId }: ProductCloseData): Promise<ProductClose> {
+        if (userId < 0) throw createError.BadRequest('UserId < 0')
+        if (productId < 0) throw createError.BadRequest('ProductId < 0')
+
         const pf = new PersonFinder()
 
         const persons = await pf.findById(userId)

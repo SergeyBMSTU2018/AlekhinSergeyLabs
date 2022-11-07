@@ -18,6 +18,8 @@ class ProductCreateScript extends AbstractScript {
     async run({ name, description, amount, categoryId, userId }: ProductCreateData): Promise<ProductCreate> {
         if (name.length > 64) throw createError.BadRequest('Name > 64')
         if (amount < 0) throw createError.BadRequest('Amount < 0')
+        if (categoryId < 0) throw createError.BadRequest('CategoryId < 0')
+        if (userId < 0) throw createError.BadRequest('UserId < 0')
 
         const cf = new CategoryFinder()
 

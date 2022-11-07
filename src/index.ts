@@ -9,7 +9,7 @@ const app = express();
 app.use(json())
 app.use(urlencoded({ extended: true }));
 
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 
 app.use('/api', router)
 

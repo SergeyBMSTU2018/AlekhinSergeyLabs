@@ -16,7 +16,10 @@ interface PersonReg {
 
 class PersonRegScript extends AbstractScript {
     async run({ name, surname, email, telephone, password }: PersonRegData): Promise<PersonReg> {
-        if (name.length > 128) throw createError.BadRequest('Name > 128')
+        if (name.length > 64) throw createError.BadRequest('Name > 64')
+        if (surname.length > 64) throw createError.BadRequest('Surname > 64')
+        if (email.length > 64) throw createError.BadRequest('Email > 64')
+        if (telephone.length > 12) throw createError.BadRequest('Telephone > 12')
 
         const pf = new PersonFinder()
 
