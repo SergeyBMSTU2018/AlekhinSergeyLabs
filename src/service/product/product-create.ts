@@ -1,5 +1,5 @@
 import createError from 'http-errors'
-import { CategoryFinder, PersonFinder, ProductGateway } from '../../database'
+import { CategoryFinder, UserFinder, ProductGateway } from '../../database'
 import { AbstractScript } from '../service'
 
 interface ProductCreateData {
@@ -15,7 +15,7 @@ interface ProductCreate {
 }
 
 class ProductCreateScript extends AbstractScript {
-    async run({ name, description, amount, categoryId, userId }: ProductCreateData): Promise<ProductCreate> {
+    public async run({ name, description, amount, categoryId, userId }: ProductCreateData): Promise<ProductCreate> {
         if (name.length > 64) throw createError.BadRequest('Name > 64')
         if (amount < 0) throw createError.BadRequest('Amount < 0')
         if (categoryId < 0) throw createError.BadRequest('CategoryId < 0')
@@ -27,11 +27,11 @@ class ProductCreateScript extends AbstractScript {
         if (categories.length === 0) throw createError.BadRequest('Wrong categoryId')
         if (categories.length > 1) throw createError.InternalServerError('Too many categories')
 
-        const pf = new PersonFinder()
+        const uf = new UserFinder()
 
-        const persons = await pf.findById(userId)
-        if (persons.length === 0) throw createError.BadRequest('Wrong userId')
-        if (persons.length > 1) throw createError.InternalServerError('Too many persons')
+        const users = await uf.findById(userId)
+        if (users.length === 0) throw createError.BadRequest('Wrong userId')
+        if (users.length > 1) throw createError.InternalServerError('Too many persons')
 
         const pg = new ProductGateway()
         pg.setName(name)

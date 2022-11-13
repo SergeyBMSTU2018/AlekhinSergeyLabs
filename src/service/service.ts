@@ -1,5 +1,5 @@
 abstract class AbstractScript {
-    abstract run(data: any): void
+    public abstract run(data: any): void
 }
 
 export {

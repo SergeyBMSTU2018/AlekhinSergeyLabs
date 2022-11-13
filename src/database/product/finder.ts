@@ -1,9 +1,9 @@
-import { Database } from '../database'
+import { AbstractDatabase } from '../database'
 import { ProductGateway } from './gateway'
 
-class ProductFinder extends Database {
-    async findById(id: number): Promise<ProductGateway[]> {
-        const data = await this.db.any('select id, name, description, amount, category_id, owner_id, close from product where id = ${id}', {
+class ProductFinder extends AbstractDatabase {
+    public async findById(id: number): Promise<ProductGateway[]> {
+        const data = await this.db.any('select id, name, description, amount, category_id, owner_id, close from products where id = ${id}', {
             id,
         })
 

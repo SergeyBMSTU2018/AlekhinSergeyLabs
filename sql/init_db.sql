@@ -1,4 +1,4 @@
-create table if not exists person
+create table if not exists users
 (
     id        serial primary key,
     name      varchar(64)  not null,
@@ -8,13 +8,13 @@ create table if not exists person
     password  text                  default null
 );
 
-create table if not exists category
+create table if not exists categories
 (
     id    serial primary key,
     title varchar(128) unique not null
 );
 
-create table if not exists product
+create table if not exists products
 (
     id          serial primary key,
     name        varchar(128) not null,
@@ -24,6 +24,6 @@ create table if not exists product
     owner_id    int          not null,
     close       boolean      not null default false,
 
-    foreign key (owner_id) references person (id) on delete cascade,
-    foreign key (category_id) references category (id) on delete cascade
+    foreign key (owner_id) references users (id) on delete cascade,
+    foreign key (category_id) references categories (id) on delete cascade
 );

@@ -1,6 +1,6 @@
-import { Database } from '../database'
+import { AbstractDatabase } from '../database'
 
-class PersonGateway extends Database {
+class UserGateway extends AbstractDatabase {
     private id!: number
     private name!: string
     private surname!: string
@@ -41,7 +41,7 @@ class PersonGateway extends Database {
     }
 
     public async insert(): Promise<number> {
-        const data = await this.db.one('insert into person(name, surname, email, telephone, password) values(${name}, ${surname}, ${email}, ${telephone}, ${password}) returning id', {
+        const data = await this.db.one('insert into users(name, surname, email, telephone, password) values(${name}, ${surname}, ${email}, ${telephone}, ${password}) returning id', {
             name: this.name,
             surname: this.surname,
             email: this.email,
@@ -54,5 +54,5 @@ class PersonGateway extends Database {
 }
 
 export {
-    PersonGateway,
+    UserGateway,
 }

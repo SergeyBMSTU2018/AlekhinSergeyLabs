@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import createError from 'http-errors'
-import { PersonAuthScript, PersonRegScript } from '../service'
+import { UserAuthScript, UserRegScript } from '../service'
 
 const userRouter = Router()
 
@@ -11,7 +11,7 @@ userRouter.post('/auth', async (req, res, next) => {
     if (!telephone) throw createError.BadRequest('No telephone')
     if (!password) throw createError.BadRequest('No password')
 
-    const personAuthScript = new PersonAuthScript()
+    const personAuthScript = new UserAuthScript()
     const data = await personAuthScript.run({
       telephone,
       password,
@@ -33,7 +33,7 @@ userRouter.post('/reg', async (req, res, next) => {
     if (!telephone) throw createError.BadRequest('No telephone')
     if (!password) throw createError.BadRequest('No password')
 
-    const personRegScript = new PersonRegScript()
+    const personRegScript = new UserRegScript()
     const data = await personRegScript.run({
       name,
       surname,

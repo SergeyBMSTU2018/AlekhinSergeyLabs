@@ -1,6 +1,6 @@
-import { Database } from '../database'
+import { AbstractDatabase } from '../database'
 
-class ProductGateway extends Database {
+class ProductGateway extends AbstractDatabase {
     private id!: number
     private name!: string
     private description!: string
@@ -66,7 +66,7 @@ class ProductGateway extends Database {
     }
 
     public async insert(): Promise<number> {
-        const data = await this.db.one('insert into product(name, description, amount, category_id, owner_id) values(${name}, ${description}, ${amount}, ${categoryId}, ${ownerId}) returning id', {
+        const data = await this.db.one('insert into products(name, description, amount, category_id, owner_id) values(${name}, ${description}, ${amount}, ${categoryId}, ${ownerId}) returning id', {
             name: this.name,
             description: this.description,
             amount: this.amount,
@@ -78,7 +78,7 @@ class ProductGateway extends Database {
     }
 
     public async update(): Promise<number> {
-        const data = await this.db.one('update product set name = ${name}, description = ${description}, amount = ${amount}, category_id = ${categoryId}, owner_id = ${ownerId}, close = ${close} where id = ${id} returning id', {
+        const data = await this.db.one('update products set name = ${name}, description = ${description}, amount = ${amount}, category_id = ${categoryId}, owner_id = ${ownerId}, close = ${close} where id = ${id} returning id', {
             id: this.id,
             name: this.name,
             description: this.description,

@@ -1,14 +1,14 @@
-import { Database } from '../database'
-import { PersonGateway } from './gateway'
+import { AbstractDatabase } from '../database'
+import { UserGateway } from './gateway'
 
-class PersonFinder extends Database {
-    async findByTelephone(telephone: string): Promise<PersonGateway[]> {
-        const data = await this.db.any('select id, name, surname, email, telephone, password from person where telephone = ${telephone}', {
+class UserFinder extends AbstractDatabase {
+    public async findByTelephone(telephone: string): Promise<UserGateway[]> {
+        const data = await this.db.any('select id, name, surname, email, telephone, password from users where telephone = ${telephone}', {
             telephone,
         })
 
         return data.map(({ id, name, surname, email, telephone, password }) => {
-            const pg = new PersonGateway()
+            const pg = new UserGateway()
             pg.setId(id)
             pg.setName(name)
             pg.setSurname(surname)
@@ -20,13 +20,13 @@ class PersonFinder extends Database {
         })
     }
 
-    async findById(id: number): Promise<PersonGateway[]> {
-        const data = await this.db.any('select id, name, surname, email, telephone, password from person where id = ${id}', {
+    public async findById(id: number): Promise<UserGateway[]> {
+        const data = await this.db.any('select id, name, surname, email, telephone, password from users where id = ${id}', {
             id,
         })
 
         return data.map(({ id, name, surname, email, telephone, password }) => {
-            const pg = new PersonGateway()
+            const pg = new UserGateway()
             pg.setId(id)
             pg.setName(name)
             pg.setSurname(surname)
@@ -40,5 +40,5 @@ class PersonFinder extends Database {
 }
 
 export {
-    PersonFinder,
+    UserFinder,
 }

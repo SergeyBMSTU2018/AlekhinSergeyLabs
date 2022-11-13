@@ -1,9 +1,9 @@
-import { Database } from '../database'
+import { AbstractDatabase } from '../database'
 import { CategoryGateway } from './gateway'
 
-class CategoryFinder extends Database {
-    async findById(id: number): Promise<CategoryGateway[]> {
-        const data = await this.db.any('select id, title from category where id = ${id}', {
+class CategoryFinder extends AbstractDatabase {
+    public async findById(id: number): Promise<CategoryGateway[]> {
+        const data = await this.db.any('select id, title from categories where id = ${id}', {
             id,
         })
 

@@ -1,5 +1,5 @@
 import createError from 'http-errors'
-import { PersonFinder, ProductFinder } from '../../database'
+import { UserFinder, ProductFinder } from '../../database'
 import { AbstractScript } from '../service'
 
 interface ProductCloseData {
@@ -12,19 +12,19 @@ interface ProductClose {
 }
 
 class ProductCloseScript extends AbstractScript {
-    async run({ userId, productId }: ProductCloseData): Promise<ProductClose> {
+    public async run({ userId, productId }: ProductCloseData): Promise<ProductClose> {
         if (userId < 0) throw createError.BadRequest('UserId < 0')
         if (productId < 0) throw createError.BadRequest('ProductId < 0')
 
-        const pf = new PersonFinder()
+        const uf = new UserFinder()
 
-        const persons = await pf.findById(userId)
-        if (persons.length === 0) throw createError.BadRequest('Wrong userId')
-        if (persons.length > 1) throw createError.InternalServerError('Too many persons')
+        const users = await uf.findById(userId)
+        if (users.length === 0) throw createError.BadRequest('Wrong userId')
+        if (users.length > 1) throw createError.InternalServerError('Too many persons')
 
-        const prf = new ProductFinder()
+        const pf = new ProductFinder()
 
-        const products = await prf.findById(productId)
+        const products = await pf.findById(productId)
         if (products.length === 0) throw createError.BadRequest('Wrong productId')
         if (products.length > 1) throw createError.InternalServerError('Too many products')
 

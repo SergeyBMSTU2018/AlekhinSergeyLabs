@@ -17,7 +17,7 @@ interface Product {
 }
 
 class ProductScript extends AbstractScript {
-    async run({ productId }: ProductData): Promise<Product> {
+   public async run({ productId }: ProductData): Promise<Product> {
         if (productId < 0) throw createError.BadRequest('ProductId < 0')
 
         const pf = new ProductFinder()

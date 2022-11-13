@@ -1,6 +1,6 @@
-import { Database } from '../database'
+import { AbstractDatabase } from '../database'
 
-class CategoryGateway extends Database {
+class CategoryGateway extends AbstractDatabase {
     private id!: number
     private title!: string
 
