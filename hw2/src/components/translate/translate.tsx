@@ -4,6 +4,7 @@ import { useSnackbar } from 'notistack'
 import { useDebouncedCallback } from 'use-debounce'
 
 import { TextArea } from './text-area'
+import { translateText } from './translate'
 import { translateCustom, translateGoogle } from '../../api'
 
 export const Translate: FC = () => {
@@ -13,23 +14,15 @@ export const Translate: FC = () => {
     const [targetCustom, setTargetCustom] = useState('')
     const [targetGoogle, setTargetGoogle] = useState('')
 
-    const translateText = useDebouncedCallback(async (text: string) => {
-        try {
-            const [custom, google] = await Promise.all([
-                translateCustom({ text }),
-                translateGoogle({ text }),
-            ])
+    const translateText1 = useDebouncedCallback(async (text: string) => {
+        const res = await translateText(text)
 
-            setTargetCustom(custom.translation)
-            setTargetGoogle(google.translation)
-        } catch {
-            enqueueSnackbar('Ошибка при переводе', { variant: 'error' });
-        }
+        setTargetCustom(res)
     }, 300)
 
     const handleChangeSource = async (text: string) => {
         setSource(text)
-        await translateText(text)
+        await translateText1(text)
     }
 
     return (
