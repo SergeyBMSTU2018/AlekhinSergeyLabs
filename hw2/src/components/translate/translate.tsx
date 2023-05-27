@@ -1,28 +1,27 @@
 import { FC, useState } from 'react'
 import { Container, Grid } from '@mui/material'
 import { useSnackbar } from 'notistack'
-import { useDebouncedCallback } from 'use-debounce'
 
 import { TextArea } from './text-area'
-import { translateText } from './translate'
-import { translateCustom, translateGoogle } from '../../api'
+import { translateText } from './translate.ts'
 
 export const Translate: FC = () => {
     const { enqueueSnackbar } = useSnackbar();
 
     const [source, setSource] = useState('')
-    const [targetCustom, setTargetCustom] = useState('')
-    const [targetGoogle, setTargetGoogle] = useState('')
-
-    const translateText1 = useDebouncedCallback(async (text: string) => {
-        const res = await translateText(text)
-
-        setTargetCustom(res)
-    }, 300)
+    const [target, setTarget] = useState('')
 
     const handleChangeSource = async (text: string) => {
         setSource(text)
-        await translateText1(text)
+
+        try {
+            const res = await translateText('Мальчик')
+
+            setTarget(res)
+        } catch (err) {
+            console.error(err)
+            enqueueSnackbar('Ошибка при переводе текста', { variant: 'error' })
+        }
     }
 
     return (
@@ -40,16 +39,9 @@ export const Translate: FC = () => {
                 </Grid>
                 <Grid item xs>
                     <TextArea
-                        label="Английский (Custom)"
+                        label="Английский"
                         readOnly
-                        value={targetCustom}
-                    />
-                </Grid>
-                <Grid item xs>
-                    <TextArea
-                        label="Английский (Google)"
-                        readOnly
-                        value={targetGoogle}
+                        value={target}
                     />
                 </Grid>
             </Grid>
