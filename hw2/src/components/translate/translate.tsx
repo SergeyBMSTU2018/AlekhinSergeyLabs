@@ -3,7 +3,7 @@ import { Container, Grid } from '@mui/material'
 import { useSnackbar } from 'notistack'
 
 import { TextArea } from './text-area'
-import { translateText } from './translate.ts'
+import { translateText } from '../../utils'
 
 export const Translate: FC = () => {
     const { enqueueSnackbar } = useSnackbar();

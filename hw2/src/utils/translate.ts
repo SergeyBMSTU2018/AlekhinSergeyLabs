@@ -53,6 +53,26 @@ function argmax(arr: number[]): number {
 }
 
 /**
+ * Реализация arr1 * arr2 на TS
+ */
+function broadcastArray(array: number[], matrix: number[][]): number[][] {
+    const result: number[][] = [];
+
+    for (let i = 0; i < matrix.length; i++) {
+        const row: number[] = [];
+
+        for (let j = 0; j < matrix[i].length; j++) {
+            row.push(array[j] * matrix[i][j]);
+        }
+
+        result.push(row);
+    }
+
+    return result;
+}
+
+
+/**
  * Переведена
  *
  * src_tensor и src_mask похоже на правду
@@ -79,11 +99,11 @@ function get_trg_mask(trg_tensor: number[]): Tensor {
         .fill(0)
         .map((_, i) => Array(trg_len).fill(0).map((_, j) => (j <= i) ? 1 : 0));
 
-    // TODO: реализовать перемножение trg_pad_mask и trg_sub_mask
-    const flat_trg_sub_mask = trg_sub_mask.flatMap((r) => r)
+    const result = broadcastArray(trg_pad_mask, trg_sub_mask)
+    const flat_result = result.flatMap((r) => r)
 
     // TODO: ошибка в размерности
-    return new Tensor('bool', Uint8Array.from(flat_trg_sub_mask), [1, 1, 1, flat_trg_sub_mask.length]);
+    return new Tensor('bool', Uint8Array.from(flat_result), [1, 1, trg_len, trg_len]);
 }
 
 async function translateText(test_text: string): Promise<string> {
