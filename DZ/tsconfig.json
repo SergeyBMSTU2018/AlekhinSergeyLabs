@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": false
+  }
+}
